@@ -2,12 +2,16 @@ package dao;
 
 import java.util.List;
 
-import modelo.Centros;
+import modelo.Centro;
+import modelo.Departamento;
 
 public interface CentroDao {
 	
-	List<Centros>getCentros();
-	Centros getCentros(int cod_centro);
+	List<Centro>getCentro();
+	Centro getCentro(int codCentro);
+	int insertarCentro(Centro centro);
+	int actualizarCentro(Centro centro);
+	int eliminarCentro(int codCentro);
 	
 
 }

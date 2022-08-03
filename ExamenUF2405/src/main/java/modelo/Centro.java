@@ -2,29 +2,29 @@ package modelo;
 
 import java.util.Objects;
 
-public class Centros {
+public class Centro {
 	
-	private int cod_centro;
+	private int codCentro;
 	private String nombre;
 	private String direccion;
 	
-	public Centros(int cod_centro, String nombre, String direccion) {
+	public Centro(int codCentro, String nombre, String direccion) {
 		super();
-		this.cod_centro = cod_centro;
+		this.codCentro = codCentro;
 		this.nombre = nombre;
 		this.direccion = direccion;
 	}
 
-	public Centros() {
+	public Centro() {
 		super();
 	}
 
-	public int getCod_centro() {
-		return cod_centro;
+	public int getCodCentro() {
+		return codCentro;
 	}
 
 	public void setCodCentro(int codCentro) {
-		this.cod_centro = codCentro;
+		this.codCentro = codCentro;
 	}
 
 	public String getNombre() {
@@ -45,7 +45,7 @@ public class Centros {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod_centro);
+		return Objects.hash(codCentro);
 	}
 
 	@Override
@@ -56,13 +56,13 @@ public class Centros {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Centros other = (Centros) obj;
-		return cod_centro == other.codCentro;
+		Centro other = (Centro) obj;
+		return codCentro == other.codCentro;
 	}
 
 	@Override
 	public String toString() {
-		return "Centros [cod_centro=" + cod_centro + ", nombre=" + nombre + ", direccion=" + direccion + "]";
+		return "Centros [codCentro=" + codCentro + ", nombre=" + nombre + ", direccion=" + direccion + "]";
 	}
 	
 	

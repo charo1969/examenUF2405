@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.Centros;
+import modelo.Centro;
 import modelo.Departamento;
 import utilidades.ConexionBD;
 
@@ -24,20 +24,20 @@ public class CentroDaoJDBC implements CentroDao {
 	}
 
 	@Override
-	public List<Centros> getCentros() {
-		List<Centros> listaCentros = new ArrayList<Centros>();
+	public List<Centro> getCentro() {
+		List<Centro> listaCentros = new ArrayList<Centro>();
 		Connection con = conexion.getConexion();
 		
 		try {
 			consulta = con.createStatement();
 			resultado = consulta.executeQuery("select * from Centros");
 			while (resultado.next()) {
-				int cod_centro = resultado.getInt("cod_centro");
+				int cod_centro = resultado.getInt("codCentro");
 				
 				String nombre = resultado.getString("nombre");
 				String direccion = resultado.getString("direccion");
 				
-				Centros centro = new Centros(cod_centro, nombre, direccion);
+				Centro centro = new Centro(cod_centro, nombre, direccion);
 				
 				
 
@@ -62,11 +62,30 @@ public class CentroDaoJDBC implements CentroDao {
 		
 		return listaCentros;
 	}
+	@Override
+	public int insertarCentro(Centro centro) {
+		// TODO Esbozo de método generado automáticamente
+		return 0;
+	}
+
+	@Override
+	public int actualizarCentro(Centro centro) {
+		// TODO Esbozo de método generado automáticamente
+		return 0;
+	}
 	
 	
 
+	
+
 	@Override
-	public Centros getCentros(int cod_centro) {
+	public Centro getCentro(int codCentro) {
+		// TODO Esbozo de método generado automáticamente
+		return null;
+	}
+
+	@Override
+	public int eliminarCentro(int codCentro) {
 		Connection con = conexion.getConexion();
 		int resultado=0;
 		
@@ -74,9 +93,9 @@ public class CentroDaoJDBC implements CentroDao {
 			consultaPreparada = con.prepareStatement("DELETE FROM Centros\r\n"
 					+ "WHERE cod_centro = ?");
 			
-			consultaPreparada.setInt(1, cod_centro);
+			consultaPreparada.setInt(1, codCentro);
 			resultado=consultaPreparada.executeUpdate();
-			System.out.println("Departamento borrado correctamente: "+cod_centro);
+			System.out.println("Departamento borrado correctamente: "+codCentro);
 
 		} catch (SQLException e) {
 			System.out.println("Error al realizar el borrado de Centro: "+e.getMessage());
@@ -94,6 +113,15 @@ public class CentroDaoJDBC implements CentroDao {
 		return resultado;
 			
 	}
+
+
+}	
+
 	
 
-}
+	
+
+	
+	
+
+
